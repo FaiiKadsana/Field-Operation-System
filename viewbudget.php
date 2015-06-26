@@ -1,4 +1,8 @@
 <?php
+
+echo "Hello";
+
+
 //include ("checklogin.php");
 include ("checklogin.php");
 include ("phpconfig.php");
