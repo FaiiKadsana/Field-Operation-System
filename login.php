@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 	$result = mysql_query($sql) or die(mysql_error());
 	# CALLING EPM USER
 	if(!@mysql_num_rows($result)){
-        // @todo pok ����¹������� login ��繰ҹ������ epm2
+        // @todo pok à»ÅÕèÂ¹äËé¡ÒÃàªç¤ login ä»à»ç¹°Ò¹¢éÍÁÙÅ epm2
 		$sql = " select staffid from epm2.epm_staff where  username = '".$_POST['user']."'  AND   password = '".$_POST['pass']."'  limit 1";
 		$result_epm = mysql_query($sql) or die(mysql_error());
 		if(@mysql_num_rows($result_epm)){
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 	$rs=mysql_fetch_assoc($result);
 	if(isset($rs[username])){
 		if($rs[pri] == "0"){
-			echo "<script>alert('Username ������͹حҵ�����ҹ�к�');window.location='login.php';</script>";
+			echo "<script>alert('Username ¹ÕéäÁèÍ¹Ø­Òµà¢éÒãªé§Ò¹ÃÐºº');window.location='login.php';</script>";
 		}else if($rs[pri] == "20"){
 				$_SESSION[islogin] = "1" ;
 				$_SESSION[userid] = $rs[userid] ;
@@ -52,13 +52,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 	}else{
 		echo"
 		  <script language=\"javascript\">
-		  alert(\" Username ���� Password ���١��ͧ \");
+		  alert(\" Username ËÃ×Í Password äÁè¶Ù¡µéÍ§ \");
 		  </script>
 		";
 		echo "<meta http-equiv='refresh' content='0;url=login.php'>" ;
 		exit();
 	}
-	//echo "<center><img src=\"images/ico_constructing.gif\"> ���ѧ�������к� ��س����ѡ����... </center>";
+	//echo "<center><img src=\"images/ico_constructing.gif\"> ¡ÓÅÑ§à¢éÒÊÙèÃÐºº ¡ÃØ³ÒÃÍÊÑ¡¤ÃÙè... </center>";
 die;
 }/*else{
 	
@@ -74,7 +74,7 @@ die;
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=windows-874">
-	<title>FIELD OPERATION SYSTEM �к��ѹ�֡���������͡��鹷�� </title>
+	<title>FIELD OPERATION SYSTEM ÃÐºººÑ¹·Ö¡¤èÒãªé¨èÒÂÍÍ¡¾Ôé¹·Õè </title>
 	<link rel="stylesheet" href="css/general.css" type="text/css" media="screen" />
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
@@ -83,11 +83,11 @@ die;
 		var v1 = document.post.user_login.value ;
 		var v2 = document.post.pwd_login.value ;
 		if(v1.length==0) {
-			alert("��س��к� UserName!") ;
+			alert("¡ÃØ³ÒÃÐºØ UserName!") ;
 			document.post.user_login.focus() ;
 			return false ;
 		}else if(v2.length==0) {
-			alert("��س��к� Password!") ;
+			alert("¡ÃØ³ÒÃÐºØ Password!") ;
 			document.post.pwd_login.focus() ;
 			return false ;
 		}
@@ -197,20 +197,20 @@ function closeAlert(){
 			<td align="left">
 				<table width="100%" border="0" cellpadding="0" cellspacing="0" >
 				  <tr align="right">
-					<td><img src="images/delete.png"  border="0" style="cursor:pointer;" title="�Դ��С��" onclick="closeAlert();"/></td>
+					<td><img src="images/delete.png"  border="0" style="cursor:pointer;" title="»Ô´»ÃÐ¡ÒÈ" onclick="closeAlert();"/></td>
 				  </tr>
 				</table>
-				<center><h2 style="color:#FF0000">��С��</h2></center>
+				<center><h2 style="color:#FF0000">»ÃÐ¡ÒÈ</h2></center>
 				<p/>
 				<table width="100%" border="0" style="font-size:18px;color:#FF6600;">
 				  <tr>
-					<td>&nbsp;&nbsp;&nbsp;&nbsp;�駡�ûԴ��Ѻ��ا�к� ����ͧ Graph Server IP 202.129.35.106</td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;á¨é§¡ÒÃ»Ô´»ÃÑº»ÃØ§ÃÐºº à¤Ã×èÍ§ Graph Server IP 202.129.35.106</td>
 				  </tr>
 				  <tr>
-					<td>������ѹ��� 11 �չҤ� 2554 ���� 17:30 � �֧�ѹ��� 12 �չҤ� 2554 ����17:30 �</td>
+					<td>µÑé§áµèÇÑ¹·Õè 11 ÁÕ¹Ò¤Á 2554 àÇÅÒ 17:30 ¹ ¶Ö§ÇÑ¹·Õè 12 ÁÕ¹Ò¤Á 2554 àÇÅÒ17:30 ¹</td>
 				  </tr>
 				  <tr>
-					<td>���ͷӡ�û�Ѻ��ا������ͧ������</td>
+					<td>à¾×èÍ·Ó¡ÒÃ»ÃÑº»ÃØ§áÅÐÊÓÃÍ§¢éÍÁÙÅ</td>
 				  </tr>
 				</table>
 				
@@ -268,7 +268,11 @@ function closeAlert(){
 			
 			</td>
 	      </tr>		  
-	  </table>	
+	  </table>
+	  
+	  <?php
+echo "Hello";
+	  ?>
 	  
 <!--			</td>
 		  </tr>
